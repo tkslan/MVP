@@ -2,9 +2,9 @@
 
 public class ApartmentView : View
 {
-	[SerializeField] private UnityEngine.UI.Text MetersText, FloorText, RoomsText;
+	[SerializeField] private UnityEngine.UI.Text metersText, floorText, roomsText;
 
-	public string Meters { get { return MetersText.text; } set { MetersText.text = value; } }
-	public string Rooms { get { return RoomsText.text; } set { RoomsText.text = value; } }
-	public string Floor { get { return FloorText.text; } set { FloorText.text = value; } }
+	public string Meters { get => metersText.text; set => metersText.text = value; }
+	public string Rooms { get => roomsText.text; set => roomsText.text = value; }
+	public string Floor { get => floorText.text; set => floorText.text = value; }
 }
