@@ -88,7 +88,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2764297969613467189}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2dd0625b2bde924a8222f4b7f700877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MetersText: {fileID: 2764297970821971922}
-  FloorText: {fileID: 2764297971060089358}
-  RoomsText: {fileID: 2764297970405618969}
+  metersText: {fileID: 2764297970821971922}
+  floorText: {fileID: 2764297971060089358}
+  roomsText: {fileID: 2764297970405618969}
 --- !u!1 &2764297970405618407
 GameObject:
   m_ObjectHideFlags: 0
