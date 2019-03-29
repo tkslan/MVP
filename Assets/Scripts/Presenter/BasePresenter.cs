@@ -1,31 +1,27 @@
-﻿public class BasePresenter : IPresenter
-{ 
-    protected IView view;
+﻿public abstract class BasePresenter : IPresenter
+{
+	protected IView View;
+	public abstract void UpdateView();
 
-    public virtual void HideView()
-    {
-        view.Visible = view.Interactable = false;
-    }
+	public virtual void HideView()
+	{
+		View.Visible = View.Interactable = false;
+	}
 
-    public virtual void SetView(IView v)
-    {
-        view = v;
-        view.SetPresenter(this);
-    }
+	public virtual void SetView(IView view)
+	{
+		View = view;
+		View.SetPresenter(this);
+	}
 
-    public virtual void ShowView()
-    {
-        UpdateView();
-        view.Interactable = view.Visible = true;
-    }
+	public virtual void ShowView()
+	{
+		UpdateView();
+		View.Interactable = View.Visible = true;
+	}
 
-    public virtual void UpdateView()
-    {
-
-    }
-
-    public void Dispose()
-    {
-        view = null;
-    }
+	public void Dispose()
+	{
+		View = null;
+	}
 }
