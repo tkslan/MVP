@@ -1,21 +1,19 @@
 ﻿
 public class ApartmentPresenter : BasePresenter
 {
-	private readonly Apartment _apartment;
-	private ApartmentView _apartmentView;
-
-	public ApartmentPresenter(Apartment apartment, ApartmentView view)
+	protected ApartmentView ApartmentView;
+	protected Apartment Apartment;
+	public override void SetView(IView view)
 	{
-		_apartment = apartment;
-		_apartmentView = view;
-		view.SetPresenter(this);
 		base.SetView(view);
+		Apartment = Data as Apartment;
+		ApartmentView = View as ApartmentView;
 	}
-
 	public override void UpdateView()
 	{
-		_apartmentView.Floor =$"Floor : {_apartment.Floor}";
-		_apartmentView.Rooms = $"Rooms : {_apartment.Rooms}";
-		_apartmentView.Meters = $"Meters: {_apartment.Meters}";
+		ApartmentView.Floor = $"Floor : {Apartment.Floor}";
+		ApartmentView.Rooms = $"Rooms : {Apartment.Rooms}";
+		ApartmentView.Meters = $"Meters: {Apartment.Meters}";
 	}
 }
+

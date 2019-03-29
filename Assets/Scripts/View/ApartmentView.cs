@@ -7,4 +7,13 @@ public class ApartmentView : View
 	public string Meters { get => metersText.text; set => metersText.text = value; }
 	public string Rooms { get => roomsText.text; set => roomsText.text = value; }
 	public string Floor { get => floorText.text; set => floorText.text = value; }
+	public void OpenBaseView()
+	{
+		(Presenter as Apartment3dPresenter)?.ShowBasePanel();
+	}
+	public void CloseThis()
+	{
+		Presenter.HideView();
+		Destroy(gameObject);
+	}
 }
