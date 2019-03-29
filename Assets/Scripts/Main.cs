@@ -11,6 +11,7 @@ public class Main : MonoBehaviour
 	void Open3dApartmentView(Apartment apartment)
 	{
 		var view = OpenView<ApartmentView, ApartmentPresenter>(apartment);
+		view.ShowView();
 	}
 	T LoadView<T>()
 	{
