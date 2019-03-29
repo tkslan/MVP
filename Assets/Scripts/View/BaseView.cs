@@ -3,21 +3,23 @@
 public abstract class BaseView<T> : MonoBehaviour where T : BasePresenter
 {
 	protected T Presenter;
-
+	protected GameObject GetGameObject { get { return gameObject; } }
 	public bool Interactable
 	{
-		get	{ return canvasGroup.interactable; }
-		set	{ canvasGroup.interactable = value; }
+		get { return _canvasGroup.interactable; }
+		set { _canvasGroup.interactable = _canvasGroup.blocksRaycasts = value; }
 	}
 	public bool Visible
 	{
-		get { return canvasGroup.alpha > 0.9f; }
-		set { canvasGroup.alpha = value ? 1f : 0f; }
+		get { return _canvasGroup.alpha > 0.9f; }
+		set { _canvasGroup.alpha = value ? 1f : 0f; }
 	}
-	private CanvasGroup canvasGroup;
+
+	private CanvasGroup _canvasGroup;
+
 	public void SetPresenter(IPresenter presenter)
 	{
-		canvasGroup = GetComponent<CanvasGroup>();
+		_canvasGroup = GetComponent<CanvasGroup>();
 		Presenter = presenter as T;
 	}
 }
