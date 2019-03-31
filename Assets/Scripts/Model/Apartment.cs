@@ -5,4 +5,3 @@ public class Apartment
     public int Floor;
     public int Rooms;
 }
-

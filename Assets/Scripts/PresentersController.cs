@@ -11,16 +11,19 @@ public class PresentersController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Open3dApartmentView(new Apartment() {Floor = 2, Meters = 123, Rooms = 2});
+        var apartment = new Apartment() {Floor = 2, Meters = 123, Rooms = 2};
+
+        Open3dApartmentView(apartment);
     }
 
     void Open3dApartmentView(Apartment apartment)
     {
         var apartmentPresenter = new Apartment3dPresenter();
         apartmentPresenter.OpenView<ApartmentView>(transform, apartment);
-        apartmentPresenter.ShowView();
         AddPresenter(apartmentPresenter);
     }
+
+   
 
     public void AddPresenter(ViewPresenter newViewPresenter)
     {

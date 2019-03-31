@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ApartmentView : View
+public sealed class ApartmentView : View
 {
     [SerializeField] private UnityEngine.UI.Text metersText, floorText, roomsText;
 
@@ -25,6 +25,11 @@ public class ApartmentView : View
     public void OpenBaseView()
     {
         (Presenter as Apartment3dPresenter)?.ShowBasePanel();
+    }
+
+    public void OpenVariantView()
+    {
+        (Presenter as Apartment3dPresenter)?.OpenBalconyApartmentView();
     }
 
     public void CloseThis()

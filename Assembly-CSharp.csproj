@@ -60,13 +60,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Model\Apartment.cs" />
-    <Compile Include="Assets\Scripts\Presenter\Apartment3dPresenter.cs" />
-    <Compile Include="Assets\Scripts\Presenter\ApartmentPresenter.cs" />
+    <Compile Include="Assets\Scripts\Model\ApartmentBalcony.cs" />
+    <Compile Include="Assets\Scripts\Presenter\Apartment\Apartment3dPresenter.cs" />
+    <Compile Include="Assets\Scripts\Presenter\Apartment\ApartmentPresenter.cs" />
+    <Compile Include="Assets\Scripts\Presenter\Apartment\ApartmentWithBalconyPresenter.cs" />
     <Compile Include="Assets\Scripts\Presenter\IPresenter.cs" />
     <Compile Include="Assets\Scripts\Presenter\Presenter.cs" />
     <Compile Include="Assets\Scripts\Presenter\ViewPresenter.cs" />
     <Compile Include="Assets\Scripts\PresentersController.cs" />
-    <Compile Include="Assets\Scripts\View\ApartmentView.cs" />
+    <Compile Include="Assets\Scripts\View\Apartment\ApartmentBalconyView.cs" />
+    <Compile Include="Assets\Scripts\View\Apartment\ApartmentView.cs" />
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
     <Compile Include="Assets\Scripts\View\IView.cs" />
     <Compile Include="Assets\Scripts\View\View.cs" />

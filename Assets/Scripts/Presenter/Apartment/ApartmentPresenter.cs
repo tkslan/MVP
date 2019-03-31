@@ -11,4 +11,5 @@
         ApartmentView.Rooms = $"Rooms : {Apartment.Rooms}";
         ApartmentView.Meters = $"Meters: {Apartment.Meters}";
     }
+
 }
