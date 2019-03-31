@@ -1,4 +1,6 @@
-﻿public class BasePresenter : IPresenter
+﻿
+
+public class Presenter : IPresenter
 {
 	protected IView View;
 	protected object Data;

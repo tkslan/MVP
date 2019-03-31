@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class BaseView<T> : MonoBehaviour where T : BasePresenter
+public abstract class BaseView<T> : MonoBehaviour where T : Presenter
 {
 	protected T Presenter;
 	protected GameObject GetGameObject { get { return gameObject; } }

@@ -1,5 +1,5 @@
 ﻿
-public class ApartmentPresenter : BasePresenter
+public class ApartmentPresenter : Presenter
 {
 	protected ApartmentView ApartmentView;
 	protected Apartment Apartment;

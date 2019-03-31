@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 [RequireComponent(typeof(CanvasGroup))]
-public class View : BaseView<BasePresenter>, IView
+public class View : BaseView<Presenter>, IView
 {
 	public void CloseThisView()
 	{

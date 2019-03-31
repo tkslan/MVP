@@ -22,7 +22,7 @@ public class Main : MonoBehaviour
 		return view.GetComponent<T>();
 	}
 
-	public Tpresenter OpenView<T, Tpresenter>(object data) where T : IView where Tpresenter : BasePresenter, new()
+	public Tpresenter OpenView<T, Tpresenter>(object data) where T : IView where Tpresenter : Presenter, new()
 	{
 		var view = LoadView<T>();
 		var presenter = new Tpresenter();
