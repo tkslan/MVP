@@ -1,19 +1,14 @@
-﻿
-public class ApartmentPresenter : Presenter
+﻿public class ApartmentPresenter : ViewPresenter
 {
-	protected ApartmentView ApartmentView;
-	protected Apartment Apartment;
-	public override void SetView(IView view)
-	{
-		base.SetView(view);
-		Apartment = Data as Apartment;
-		ApartmentView = View as ApartmentView;
-	}
-	public override void UpdateView()
-	{
-		ApartmentView.Floor = $"Floor : {Apartment.Floor}";
-		ApartmentView.Rooms = $"Rooms : {Apartment.Rooms}";
-		ApartmentView.Meters = $"Meters: {Apartment.Meters}";
-	}
-}
+    protected ApartmentView ApartmentView;
+    protected Apartment Apartment;
 
+    public override void UpdateView()
+    {
+        Apartment = Data as Apartment;
+        ApartmentView = View as ApartmentView;
+        ApartmentView.Floor = $"Floor : {Apartment.Floor}";
+        ApartmentView.Rooms = $"Rooms : {Apartment.Rooms}";
+        ApartmentView.Meters = $"Meters: {Apartment.Meters}";
+    }
+}

@@ -1,17 +1,20 @@
-﻿
-public class Apartment3dPresenter : ApartmentPresenter
+﻿public class Apartment3dPresenter : ApartmentPresenter
 {
-	public override void UpdateView()
-	{
-		base.UpdateView();
-		ApartmentView.Meters = $"Meters in 3D: {(Apartment.Meters * 1.2f).ToString()}";
-	}
-	public void DebugInfo()
-	{
-		UnityEngine.Debug.Log(this + "" + Apartment.Rooms);
-	}
-	public void ShowBasePanel()
-	{
-		Controller.OpenView<ApartmentView, ApartmentPresenter>(Data).ShowView();
-	}
+    public override void UpdateView()
+    {
+        base.UpdateView();
+        ApartmentView.Meters = $"Meters in 3D: {(Apartment.Meters * 1.2f).ToString()}";
+    }
+
+    public void DebugInfo()
+    {
+        UnityEngine.Debug.Log(this + "" + Apartment.Rooms);
+    }
+
+    public void ShowBasePanel()
+    {
+        var cachedTransform = View.GetGameObject.transform.parent;
+        DisposeView();
+        OpenView<ApartmentView>(cachedTransform, new Apartment() {Meters = 255, Floor = 128, Rooms = 64});
+    }
 }
