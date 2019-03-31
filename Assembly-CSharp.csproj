@@ -59,12 +59,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\Model\Apartment.cs" />
     <Compile Include="Assets\Scripts\Presenter\Apartment3dPresenter.cs" />
     <Compile Include="Assets\Scripts\Presenter\ApartmentPresenter.cs" />
     <Compile Include="Assets\Scripts\Presenter\IPresenter.cs" />
     <Compile Include="Assets\Scripts\Presenter\Presenter.cs" />
+    <Compile Include="Assets\Scripts\Presenter\ViewPresenter.cs" />
+    <Compile Include="Assets\Scripts\PresentersController.cs" />
     <Compile Include="Assets\Scripts\View\ApartmentView.cs" />
     <Compile Include="Assets\Scripts\View\BaseView.cs" />
     <Compile Include="Assets\Scripts\View\IView.cs" />
