@@ -1,4 +1,4 @@
-# MVP
+# Unity MVP
 Custom MVP pattern implementation in Unity
 
 Model - data to operate on
