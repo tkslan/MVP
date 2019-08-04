@@ -1,5 +1,4 @@
-# Unity MVP
-Custom MVP pattern implementation in Unity
+# Custom MVP pattern in Unity UI 
 
 Model - data to operate on
 
