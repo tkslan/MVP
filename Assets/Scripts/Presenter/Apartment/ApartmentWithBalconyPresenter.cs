@@ -1,20 +1,18 @@
 using UnityEditor.UIElements;
 using UnityEngine;
 
-public class ApartmentWithBalconyPresenter : ViewPresenter
+public class ApartmentWithBalconyPresenter : ViewPresenter<ApartmentBalconyView>
 {
     ApartmentBalcony Apartment;
-    ApartmentBalconyView ApartmentView;
 
     public override void UpdateView()
     {
-        Apartment = Data as ApartmentBalcony;
-        ApartmentView = View as ApartmentBalconyView;
-        ApartmentView.Floor = $"Floor : {Apartment.Floor}";
-        ApartmentView.Rooms = $"Rooms : {Apartment.Rooms}";
-        ApartmentView.Meters = $"Meters: {Apartment.Meters}";
-        ApartmentView.HasBalcony = Apartment.Balcony;
-        ApartmentView.BalconyMeters = "Balcony meters:" + Apartment.BalconyMeters.ToString();
+        Apartment = Data as ApartmentBalcony; ;
+        View.Floor = $"Floor : {Apartment.Floor}";
+        View.Rooms = $"Rooms : {Apartment.Rooms}";
+        View.Meters = $"Meters: {Apartment.Meters}";
+        View.HasBalcony = Apartment.Balcony;
+        View.BalconyMeters = "Balcony meters:" + Apartment.BalconyMeters.ToString();
     }
 
     public void ChangedBalconyToggle(bool toggleActive)

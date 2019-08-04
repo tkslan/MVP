@@ -29,22 +29,10 @@ public sealed class ApartmentBalconyView : View, IView
     {
         set => (Presenter as ApartmentWithBalconyPresenter)?.ChangedBalconyToggle(value);
     }
-
+    
     public string BalconyMeters
     {
         get => balconyMetersText.text;
         set => balconyMetersText.text = value;
     }
-
-    public bool Interactable
-    {
-        get => CanvasGroup.interactable;
-        set => CanvasGroup.interactable = CanvasGroup.blocksRaycasts = value;
-    }
-    public bool Visible
-    {
-        get => CanvasGroup.alpha > 0.9f;
-        set => CanvasGroup.alpha = value ? 1f : 0f;
-    }
-    public GameObject GetGameObject => gameObject;
 }

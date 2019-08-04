@@ -1,4 +1,4 @@
-﻿public class ApartmentPresenter : ViewPresenter
+﻿public class ApartmentPresenter : ViewPresenter<ApartmentView>
 {
     protected ApartmentView ApartmentView;
     protected Apartment Apartment;

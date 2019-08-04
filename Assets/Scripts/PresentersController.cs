@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PresentersController : MonoBehaviour
 {
-    private List<ViewPresenter> _presenters;
+    private List<IPresenter> _presenters;
 
     // Start is called before the first frame update
     void Start()
@@ -19,19 +19,17 @@ public class PresentersController : MonoBehaviour
     void Open3dApartmentView(Apartment apartment)
     {
         var apartmentPresenter = new Apartment3dPresenter();
-        apartmentPresenter.OpenView<ApartmentView>(transform, apartment);
+        apartmentPresenter.OpenView(transform, apartment);
         AddPresenter(apartmentPresenter);
     }
-
-   
-
-    public void AddPresenter(ViewPresenter newViewPresenter)
+    
+    public void AddPresenter(IPresenter newViewPresenter)
     {
-        _presenters = _presenters ?? new List<ViewPresenter>();
+        _presenters = _presenters ?? new List<IPresenter>();
         _presenters.Add(newViewPresenter);
     }
 
-    public T GetPresenter<T>() where T : ViewPresenter
+    public T GetPresenter<T>() where T : Presenter
     {
         if (_presenters == null)
             throw new NoNullAllowedException("There is no presenters at the moment");
