@@ -1,40 +1,43 @@
 ﻿using UnityEngine;
 
-public sealed class ApartmentView : View
+namespace View.Apartment
 {
-    [SerializeField] private UnityEngine.UI.Text metersText, floorText, roomsText;
-
-    public string Meters
+    public sealed class ApartmentView : View
     {
-        get => metersText.text;
-        set => metersText.text = value;
-    }
+        [SerializeField] private UnityEngine.UI.Text metersText, floorText, roomsText;
 
-    public string Rooms
-    {
-        get => roomsText.text;
-        set => roomsText.text = value;
-    }
+        public string Meters
+        {
+            get => metersText.text;
+            set => metersText.text = value;
+        }
 
-    public string Floor
-    {
-        get => floorText.text;
-        set => floorText.text = value;
-    }
+        public string Rooms
+        {
+            get => roomsText.text;
+            set => roomsText.text = value;
+        }
 
-    public void OpenBaseView()
-    {
-        (Presenter as Apartment3dPresenter)?.ShowBasePanel();
-    }
+        public string Floor
+        {
+            get => floorText.text;
+            set => floorText.text = value;
+        }
 
-    public void OpenVariantView()
-    {
-        (Presenter as Apartment3dPresenter)?.OpenBalconyApartmentView();
-    }
+        public void OpenBaseView()
+        {
+            (Presenter as Presenter.Apartment.Apartment3dPresenter)?.ShowBasePanel();
+        }
 
-    public void CloseThis()
-    {
-        Presenter.HideView();
-        Presenter.DisposeView();
+        public void OpenVariantView()
+        {
+            (Presenter as Presenter.Apartment.Apartment3dPresenter)?.OpenBalconyApartmentView();
+        }
+
+        public void CloseThis()
+        {
+            Presenter.HideView();
+            Presenter.DisposeView();
+        }
     }
 }

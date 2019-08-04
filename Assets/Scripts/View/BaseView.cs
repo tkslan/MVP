@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using Presenter;
+using UnityEngine;
 
-public abstract class BaseView<T> : MonoBehaviour where T : Presenter
+namespace View
 {
-	protected T Presenter;
+    public abstract class BaseView<T> : MonoBehaviour where T : IPresenter
+    {
+        protected IPresenter Presenter;
+        
+        protected CanvasGroup CanvasGroup;
 
-	protected CanvasGroup CanvasGroup;
-
-	public void SetPresenter(IPresenter presenter)
-	{
-		CanvasGroup = GetComponent<CanvasGroup>();
-		Presenter = presenter as T;
-	}
+        public void SetPresenter(IPresenter presenter)
+        {
+            CanvasGroup = GetComponent<CanvasGroup>();
+            Presenter = presenter;
+        }
+    }
 }

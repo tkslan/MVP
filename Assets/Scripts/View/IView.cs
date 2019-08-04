@@ -1,10 +1,13 @@
-﻿
+﻿using Presenter;
 using UnityEngine;
 
-public interface IView
+namespace View
 {
-    bool Interactable { get; set; }
-    bool Visible { get; set; }
-    void SetPresenter(IPresenter presenter);
-    GameObject GetGameObject { get; }
+    public interface IView
+    {
+        bool Interactable { get; set; }
+        bool Visible { get; set; }
+        void SetPresenter(IPresenter presenter);
+        GameObject GetGameObject { get; }
+    }
 }

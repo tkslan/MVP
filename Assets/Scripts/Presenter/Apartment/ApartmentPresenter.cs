@@ -1,15 +1,20 @@
-﻿public class ApartmentPresenter : ViewPresenter<ApartmentView>
+﻿using View.Apartment;
+
+namespace Presenter.Apartment
 {
-    protected ApartmentView ApartmentView;
-    protected Apartment Apartment;
-
-    public override void UpdateView()
+    public class ApartmentPresenter : ViewPresenter<ApartmentView, Model.Apartment>
     {
-        Apartment = Data as Apartment;
-        ApartmentView = View as ApartmentView;
-        ApartmentView.Floor = $"Floor : {Apartment.Floor}";
-        ApartmentView.Rooms = $"Rooms : {Apartment.Rooms}";
-        ApartmentView.Meters = $"Meters: {Apartment.Meters}";
-    }
+        public override void UpdateView()
+        {
+            base.UpdateView();
+            View.Floor = $"Floor : {Data.Floor}";
+            View.Rooms = $"Rooms : {Data.Rooms}";
+            View.Meters = $"Meters: {Data.Meters}";
+        }
 
+        public override void OnOpened()
+        {
+            
+        }
+    }
 }

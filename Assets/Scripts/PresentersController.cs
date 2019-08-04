@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using UnityEngine;
+using Presenter;
+using Model;
 
 public class PresentersController : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PresentersController : MonoBehaviour
 
     void Open3dApartmentView(Apartment apartment)
     {
-        var apartmentPresenter = new Apartment3dPresenter();
+        var apartmentPresenter = new Presenter.Apartment.Apartment3dPresenter();
         apartmentPresenter.OpenView(transform, apartment);
         AddPresenter(apartmentPresenter);
     }
@@ -29,7 +30,7 @@ public class PresentersController : MonoBehaviour
         _presenters.Add(newViewPresenter);
     }
 
-    public T GetPresenter<T>() where T : Presenter
+    public T GetPresenter<T>() where T : Presenter.Presenter
     {
         if (_presenters == null)
             throw new NoNullAllowedException("There is no presenters at the moment");

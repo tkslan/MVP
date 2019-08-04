@@ -1,23 +1,30 @@
-﻿using UnityEngine;
-[RequireComponent(typeof(CanvasGroup))]
-public class View : BaseView<Presenter>, IView
+﻿
+using UnityEngine;
+
+namespace View
 {
-	public GameObject GetGameObject => gameObject;
-	public bool Interactable
+	[RequireComponent(typeof(CanvasGroup))]
+	public class View : BaseView<Presenter.Presenter>, IView
 	{
-		get => CanvasGroup.interactable;
-		set => CanvasGroup.interactable = CanvasGroup.blocksRaycasts = value;
-	}
-	public bool Visible
-	{
-		get => CanvasGroup.alpha > 0.9f;
-		set => CanvasGroup.alpha = value ? 1f : 0f;
-	}
+		public GameObject GetGameObject => this.gameObject;
 
-	public void CloseThisView()
-	{
-		Presenter.HideView();
-		Destroy(this.gameObject);
-	}
+		public bool Interactable
+		{
+			get => CanvasGroup.interactable;
+			set => CanvasGroup.interactable = CanvasGroup.blocksRaycasts = value;
+		}
 
+		public bool Visible
+		{
+			get => CanvasGroup.alpha > 0.9f;
+			set => CanvasGroup.alpha = value ? 1f : 0f;
+		}
+
+		public void CloseThisView()
+		{
+			Presenter.HideView();
+			Presenter.DisposeView();
+		}
+
+	}
 }

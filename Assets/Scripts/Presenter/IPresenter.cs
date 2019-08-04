@@ -1,8 +1,12 @@
 ﻿
-public interface IPresenter
+namespace Presenter
 {
-	void SetView(IView view, object data);
-	void HideView();
-	void ShowView();
-	void UpdateView();
+	public interface IPresenter
+	{
+		void SetView(View.IView view, object data);
+		void HideView();
+		void ShowView();
+		void UpdateView();
+		void DisposeView();
+	}
 }

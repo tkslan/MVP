@@ -1,5 +1,8 @@
-public class ApartmentBalcony : Apartment
+namespace Model
 {
-    public bool Balcony;
-    public int BalconyMeters;
+    public class ApartmentBalcony : Apartment
+    {
+        public bool Balcony;
+        public int BalconyMeters;
+    }
 }

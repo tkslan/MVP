@@ -1,38 +1,57 @@
 using System;
+using Presenter.Apartment;
 using UnityEngine;
 
-public sealed class ApartmentBalconyView : View, IView
+namespace View.Apartment
 {
-    [SerializeField] private UnityEngine.UI.Text balconyMetersText;
-    [SerializeField] private UnityEngine.UI.Toggle balconyToggle;
-    [SerializeField] private UnityEngine.UI.Text metersText, floorText, roomsText;
+    public sealed class ApartmentBalconyView : View
+    {
+        [SerializeField] private UnityEngine.UI.Text balconyMetersText;
+        [SerializeField] private UnityEngine.UI.Toggle balconyToggle;
+        [SerializeField] private UnityEngine.UI.Text metersText, floorText, roomsText;
 
-    public string Meters
-    {
-        get => metersText.text;
-        set => metersText.text = value;
-    }
+        public string Meters
+        {
+            get => metersText.text;
+            set => metersText.text = value;
+        }
 
-    public string Rooms
-    {
-        get => roomsText.text;
-        set => roomsText.text = value;
-    }
+        public string Rooms
+        {
+            get => roomsText.text;
+            set => roomsText.text = value;
+        }
 
-    public string Floor
-    {
-        get => floorText.text;
-        set => floorText.text = value;
-    }
+        public string Floor
+        {
+            get => floorText.text;
+            set => floorText.text = value;
+        }
 
-    public bool HasBalcony
-    {
-        set => (Presenter as ApartmentWithBalconyPresenter)?.ChangedBalconyToggle(value);
-    }
-    
-    public string BalconyMeters
-    {
-        get => balconyMetersText.text;
-        set => balconyMetersText.text = value;
+        public bool HasBalcony
+        {
+            set
+            {
+                if (Presenter is ApartmentWithBalconyPresenter balconyPresenter)
+                    balconyPresenter.ChangedBalconyToggle(value);
+                else
+                    throw new NotSupportedException("This is not Balcony Presenter");
+            }
+        }
+
+        public void UpdateBalconySize()
+        {
+            if (!(Presenter is ApartmentWithBalconyPresenter balconyPresenter)) 
+                return;
+            
+            balconyPresenter.Data.BalconyMeters++;
+            balconyPresenter.UpdateView();
+        }
+
+        public string BalconyMeters
+        {
+            get => balconyMetersText.text;
+            set => balconyMetersText.text = value;
+        }
     }
 }
