@@ -41,11 +41,19 @@ namespace View.Apartment
 
         public void UpdateBalconySize()
         {
-            if (!(Presenter is ApartmentWithBalconyPresenter balconyPresenter)) 
+            if (!(Presenter is ApartmentWithBalconyPresenter balconyPresenter))
                 return;
-            
+
             balconyPresenter.Data.BalconyMeters++;
             balconyPresenter.UpdateView();
+        }
+
+        public void OpenBaseVariant()
+        {
+            //Presenter can be different type and operate on different model, lets check 
+            //that we have a good instance with proper data 
+            if (Presenter is ApartmentWithBalconyPresenter apartmentPresenter)
+                Presenter.GetController().Open3dApartmentView(apartmentPresenter.Data);
         }
 
         public string BalconyMeters
