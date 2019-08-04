@@ -1,8 +1,8 @@
 # MVP
-Simple MVP pattern implementation in Unity
+Custom MVP pattern implementation in Unity
 
 Model - data to operate on
+View - only UnityEngine.UI stuff for dispaying and updating data view
+Presenter - Class responsible for handling View loading, events, updates, destroys etc.
 
-View - only Unity canvas items and getters/setters for dispaying and setting updating model data
 
-Presenter - View presenter class responsible for handling View events, updates, and removal
