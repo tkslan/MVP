@@ -1,10 +1,11 @@
 ﻿
+using Presenter;
 using UnityEngine;
 
 namespace View
 {
 	[RequireComponent(typeof(CanvasGroup))]
-	public class View : BaseView<Presenter.Presenter>, IView
+	public class View : BaseView<IPresenter>, IView
 	{
 		public GameObject GetGameObject => this.gameObject;
 

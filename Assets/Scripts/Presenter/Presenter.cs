@@ -11,7 +11,7 @@ namespace Presenter
         public abstract void UpdateView();
         public abstract void OnOpened();
 
-        public static Action<IPresenter> OnPresenterCreated, OnPresenterDispose = null;
+        public static Action<IPresenter> OnCreated, OnDisposed = null;
 
         public void SetController(PresentersController controller)
         {
@@ -25,7 +25,7 @@ namespace Presenter
         
         public Presenter()
         {
-            OnPresenterCreated?.Invoke(this);
+            OnCreated?.Invoke(this);
         }
         public virtual void HideView()
         {
@@ -43,14 +43,13 @@ namespace Presenter
         {
             UnityEngine.Object.Destroy(View.GetGameObject);
             View = null;
-            OnPresenterDispose?.Invoke(this);
+            OnDisposed?.Invoke(this);
         }
         
         public virtual void SetView(View.IView view, object data)
         {
             Data = data;
             SetView(view);
-            
         }
 
         private void SetView(View.IView view)

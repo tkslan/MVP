@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Presenter.Apartment
 {
-    public class ApartmentWithBalconyPresenter :
+    public class Balcony :
             ViewPresenter<View.Apartment.ApartmentBalconyView, Model.ApartmentBalcony>
     {
         public override void UpdateView()

@@ -2,7 +2,7 @@
 
 namespace Presenter.Apartment
 {
-    public class ApartmentPresenter : ViewPresenter<ApartmentView, Model.Apartment>
+    public class Default : ViewPresenter<ApartmentView, Model.Apartment>
     {
         public override void UpdateView()
         {

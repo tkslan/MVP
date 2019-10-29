@@ -26,12 +26,12 @@ namespace View.Apartment
 
         public void OpenBaseView()
         {
-            (Presenter as Presenter.Apartment.Apartment3dPresenter)?.ShowBasePanel();
+            (Presenter as Presenter.Apartment.Extra3D)?.ShowBasePanel();
         }
 
         public void OpenVariantView()
         {
-            (Presenter as Presenter.Apartment.Apartment3dPresenter)?.OpenBalconyApartmentView();
+            (Presenter as Presenter.Apartment.Extra3D)?.OpenBalconyApartmentView();
         }
 
         public void CloseThis()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Presenter.Apartment
 {
-    public class Apartment3dPresenter : ApartmentPresenter
+    public class Extra3D : Default
     {
         public override void UpdateView()
         {
@@ -29,7 +29,7 @@ namespace Presenter.Apartment
             var apartment = new Model.ApartmentBalcony()
                 {Balcony = true, BalconyMeters = 7, Floor = 1, Meters = 77, Rooms = 3};
 
-            var balconyPresenter = new ApartmentWithBalconyPresenter();
+            var balconyPresenter = new Balcony();
             balconyPresenter.OnViewUpdate += OnBalconyViewUpdate;
 
             balconyPresenter.OpenView(View.transform.parent, apartment);

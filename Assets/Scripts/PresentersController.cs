@@ -12,10 +12,12 @@ public class PresentersController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Presenter.Presenter.OnPresenterCreated += AddPresenter;
-        Presenter.Presenter.OnPresenterDispose += RemovePresenter;
+        Presenter.Presenter.OnCreated += AddPresenter;
+        Presenter.Presenter.OnDisposed += RemovePresenter;
         // Open3dApartmentView(new Apartment() {Floor = 2, Meters = 123, Rooms = 2});
-        OpenGameStats();
+       // OpenGameStats();
+        var tp=new Presenter.Apartment.Default();
+        tp.OpenView(transform, new Apartment());
     }
 
     void OpenGameStats()
@@ -27,13 +29,13 @@ public class PresentersController : MonoBehaviour
             World = 1,
             Score = 1001
         };
-        var presenter = new Presenter.GameStats.GameStatsPresenter();
+        var presenter = new Presenter.GameStats.Default();
         presenter.OpenView(transform, stats);
     }
 
     public void Open3dApartmentView(Apartment apartment)
     {
-        var apartmentPresenter = new Presenter.Apartment.Apartment3dPresenter();
+        var apartmentPresenter = new Presenter.Apartment.Extra3D();
         apartmentPresenter.OpenView(transform, apartment);
     }
 
@@ -49,7 +51,7 @@ public class PresentersController : MonoBehaviour
         var removed = _presenters.Remove(presenter);
     }
 
-    public T GetPresenter<T>() where T : Presenter.Presenter
+    public T GetPresenter<T>() where T : class, IPresenter
     {
         if (_presenters == null)
             throw new NoNullAllowedException("There is no presenters at the moment");

@@ -32,7 +32,7 @@ namespace View.Apartment
         {
             set
             {
-                if (Presenter is ApartmentWithBalconyPresenter balconyPresenter)
+                if (Presenter is Balcony balconyPresenter)
                     balconyPresenter.ChangedBalconyToggle(value);
                 else
                     throw new NotSupportedException("This is not Balcony Presenter");
@@ -41,7 +41,7 @@ namespace View.Apartment
 
         public void UpdateBalconySize()
         {
-            if (!(Presenter is ApartmentWithBalconyPresenter balconyPresenter))
+            if (!(Presenter is Balcony balconyPresenter))
                 return;
 
             balconyPresenter.Data.BalconyMeters++;
@@ -52,7 +52,7 @@ namespace View.Apartment
         {
             //Presenter can be different type and operate on different model, lets check 
             //that we have a good instance with proper data 
-            if (Presenter is ApartmentWithBalconyPresenter apartmentPresenter)
+            if (Presenter is Balcony apartmentPresenter)
                 Presenter.GetController().Open3dApartmentView(apartmentPresenter.Data);
         }
 

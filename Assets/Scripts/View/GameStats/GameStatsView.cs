@@ -23,11 +23,12 @@ namespace View.GameStats
                 bestLevelTimes.text += $"Level {levelCount} - " +
                                        $"{new TimeSpan(0, 0, 0, (int) levelTime):g}\r\n";
             }
+            
         }
 
         public void ShowApartmentBase()
         {
-            if( Presenter is GameStatsPresenter statsPresenter)
+            if(Presenter is Default statsPresenter)
                 statsPresenter.SetNewApartmentBalcony();
         }
     }

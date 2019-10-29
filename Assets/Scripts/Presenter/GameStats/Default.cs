@@ -4,24 +4,13 @@ using View.GameStats;
 
 namespace Presenter.GameStats
 {
-    public class GameStatsPresenter: ViewPresenter<GameStatsView, Model.GameStats>
+    public class Default: ViewPresenter<GameStatsView, Model.GameStats>
     {
-        public override void UpdateView()
-        {
-            base.UpdateView();
-            View.SetStats(Data);
-        }
-
-        public override void OnOpened()
-        {
-            
-        }
-
         public void SetNewApartmentBalcony()
         {
-            if (Controller.GetPresenter<ApartmentWithBalconyPresenter>() == null)
+            if (Controller.GetPresenter<Balcony>() == null)
             {
-                var balcony = new ApartmentWithBalconyPresenter();
+                var balcony = new Balcony();
                 balcony.OpenView(Controller.transform, new Model.ApartmentBalcony()
                 {
                     Balcony = true,
@@ -31,6 +20,11 @@ namespace Presenter.GameStats
                     Rooms = 2
                 });
             }
+        }
+
+        public override void OnOpened()
+        {
+            View.SetStats(Data);
         }
     }
 }
