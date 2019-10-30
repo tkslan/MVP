@@ -31,7 +31,8 @@ namespace View.Apartment
 
         public void OpenVariantView()
         {
-            (Presenter as Presenter.Apartment.Extra3D)?.OpenBalconyApartmentView();
+            var extra3D = new Presenter.Apartment.Extra3D();
+            extra3D.OpenBalconyApartmentView();
         }
 
         public void CloseThis()

@@ -1,62 +1,47 @@
-using System;
+﻿using System;
+using System.Linq;
+using UnityEngine;
+using View;
 
 namespace Presenter
 {
-    public abstract class Presenter : IPresenter
+    public abstract class Presenter<T, U> : PresenterBase where T : class, View.IView
     {
-        protected View.IView View;
-        protected object Data;
+        public Action<U> OnViewUpdate = null;
+        public new U Data => (U) base.Data;
+        protected new T View => (T) base.View;
 
-        public PresentersController Controller;
-        public abstract void UpdateView();
-        public abstract void OnOpened();
-
-        public static Action<IPresenter> OnCreated, OnDisposed = null;
-
-        public void SetController(PresentersController controller)
+        public override void UpdateView()
         {
-            Controller = controller;
+            OnViewUpdate?.Invoke(Data);
         }
-
-        public PresentersController  GetController()
+        protected void SetData(U data)
         {
-            return Controller;
+            base.Data = data;
         }
         
-        public Presenter()
+        private T LoadView(Transform parentTransform)
         {
-            OnCreated?.Invoke(this);
-        }
-        public virtual void HideView()
-        {
-            View.Visible = View.Interactable = false;
-        }
-
-        public virtual void ShowView()
-        {
-            UpdateView();
-            View.Interactable = View.Visible = true;
-            OnOpened();
+            var loadedView = Controller.GetPoolView<T>();
+            var view = GameObject.Instantiate(loadedView, parentTransform);
+            view.GetGameObject.name = loadedView.name;
+            return view as T;
         }
 
-        public void DisposeView()
+        public T OpenView(U data)
         {
-            UnityEngine.Object.Destroy(View.GetGameObject);
-            View = null;
-            OnDisposed?.Invoke(this);
+            var view= OpenView(null,false);
+            SetView(view, data);
+            ShowView();
+            return view;
         }
-        
-        public virtual void SetView(View.IView view, object data)
-        {
-            Data = data;
-            SetView(view);
-        }
-
-        private void SetView(View.IView view)
-        {
-            View = view;
-            View.SetPresenter(this);
-            HideView();
+        public T OpenView(Transform parentTransform = null, bool autoShow = true)
+        { 
+            var view = View ?? LoadView(parentTransform == null ? Controller.transform : parentTransform);
+            SetView(view, Data);
+            if (autoShow) 
+                this.ShowView();
+            return view;
         }
     }
 }

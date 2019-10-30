@@ -20,7 +20,7 @@ namespace Presenter.Apartment
         {
             var cachedTransform = View.GetGameObject.transform.parent;
             DisposeView();
-            var view=OpenView(cachedTransform, new Model.Apartment() {Meters = 255, Floor = 128, Rooms = 64});
+            var view = OpenView( new Model.Apartment() {Meters = 255, Floor = 128, Rooms = 64});
             view.transform.Translate(new Vector3(200,0));
         }
 
@@ -30,9 +30,9 @@ namespace Presenter.Apartment
                 {Balcony = true, BalconyMeters = 7, Floor = 1, Meters = 77, Rooms = 3};
 
             var balconyPresenter = new Balcony();
+            
             balconyPresenter.OnViewUpdate += OnBalconyViewUpdate;
-
-            balconyPresenter.OpenView(View.transform.parent, apartment);
+            balconyPresenter.OpenView(apartment);
         }
 
         private void OnBalconyViewUpdate(ApartmentBalcony obj)

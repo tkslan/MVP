@@ -2,7 +2,7 @@
 
 namespace Presenter.Apartment
 {
-    public class Default : ViewPresenter<ApartmentView, Model.Apartment>
+    public class Default : Presenter<ApartmentView, Model.Apartment>
     {
         public override void UpdateView()
         {
@@ -12,7 +12,16 @@ namespace Presenter.Apartment
             View.Meters = $"Meters: {Data.Meters}";
         }
 
-        public override void OnOpened()
+        public Default(Model.Apartment data)
+        {
+            SetData(data);
+        }
+
+        public Default()
+        {
+            
+        }
+        protected override void OnOpened()
         {
             
         }

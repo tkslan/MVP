@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace Presenter.Apartment
 {
     public class Balcony :
-            ViewPresenter<View.Apartment.ApartmentBalconyView, Model.ApartmentBalcony>
+            Presenter<View.Apartment.ApartmentBalconyView, Model.ApartmentBalcony>
     {
         public override void UpdateView()
         {
@@ -16,7 +16,7 @@ namespace Presenter.Apartment
             View.BalconyMeters = "Balcony meters:" + Data.BalconyMeters;
         }
 
-        public override void OnOpened()
+        protected override void OnOpened()
         {
         }
 
